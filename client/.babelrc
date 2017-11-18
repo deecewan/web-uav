@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "react",
+    ["env", { "targets": { "chrome": "60", "firefox": "54" }, "exclude": ["transform-regenerator"], "debug": true }],
+    "flow"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-object-rest-spread",
+    "syntax-trailing-function-commas",
+    "transform-class-properties"
+  ]
+}

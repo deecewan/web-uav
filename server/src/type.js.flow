@@ -1,0 +1,20 @@
+/* @flow */
+
+import type { Model } from 'sequelize';
+
+export type RosType = 'image' | 'air_quality' | 'detected';
+
+export type DataType = {
+  data: string,
+};
+
+export type RosCallbackType = (
+  type: RosType,
+  data: DataType,
+) => void;
+
+export type ModelsType = {
+  Image: Model,
+  Mission: Model,
+  Reading: Model,
+};

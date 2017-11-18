@@ -1,0 +1,31 @@
+/* @flow */
+
+export type ImageType = {|
+  +detected: string,
+  +id: number,
+  +path: string,
+|};
+
+export type AddActionType = {
+  payload: ImageType | Array<ImageType>,
+  type: '@images/ADD',
+};
+
+export type LoadingActionType = {
+  payload: boolean,
+  type: '@images/LOADING',
+};
+
+export type ClearActionType = {
+  type: '@images/CLEAR',
+};
+
+export type ActionType = AddActionType
+  | ClearActionType
+  | LoadingActionType
+  ;
+
+export type StateType = {
+  items: $ReadOnlyArray<ImageType>,
+  loading: boolean,
+};

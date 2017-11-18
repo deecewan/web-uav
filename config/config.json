@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "uav",
+    "password": "uav",
+    "database": "uav",
+    "host": "db",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "uav",
+    "password": "uav",
+    "database": "database_test",
+    "host": "db",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "uav",
+    "password": "uav",
+    "database": "uav",
+    "host": "db",
+    "dialect": "postgres"
+  }
+}

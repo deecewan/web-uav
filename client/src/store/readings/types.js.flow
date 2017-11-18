@@ -1,0 +1,45 @@
+/* @flow */
+
+export type ReadingType = {|
+  timestamp: number,
+  type: 'gas' | 'temperature' | 'humidity',
+  value: number,
+|};
+
+export type AddReadingActionType = {
+  payload: ReadingType | Array<ReadingType>,
+  type: '@readings/ADD',
+};
+
+export type ClearReadingActionType = {
+  type: '@readings/CLEAR',
+};
+
+export type LoadingActionType = {
+  payload: boolean,
+  type: '@readings/LOADING',
+};
+
+export type UpdateAllActionType = {
+  payload: boolean,
+  type: '@readings/DISPLAY_ALL',
+};
+
+export type ActionType = AddReadingActionType
+  | ClearReadingActionType
+  | LoadingActionType
+  | UpdateAllActionType
+  ;
+
+type StateReadingType = {
+  timestamp: number,
+  value: number,
+};
+
+export type StateType = {
+  displayAll: boolean,
+  gas: $ReadOnlyArray<StateReadingType>,
+  humidity: $ReadOnlyArray<StateReadingType>,
+  loading: boolean,
+  temperature: $ReadOnlyArray<StateReadingType>,
+};

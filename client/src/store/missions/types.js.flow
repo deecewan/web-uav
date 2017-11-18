@@ -1,0 +1,40 @@
+/* @flow */
+
+export type MissionType = {|
+  +completedAt: ?number,
+  +coverImage: ?{
+    path: string,
+  },
+  +id: number,
+  +startedAt: number,
+|};
+
+export type AddActionType = {
+  payload: MissionType,
+  type: '@missions/ADD',
+};
+
+export type SetCurrentActionType = {
+  payload: ?MissionType,
+  type: '@missions/SET_CURRENT',
+};
+
+export type CreateActionType = {
+  type: '@missions/CREATE',
+};
+
+export type StopActionType = {
+  type: '@missions/STOP',
+};
+
+export type ActionType = AddActionType
+  | CreateActionType
+  | SetCurrentActionType
+  | StopActionType
+  ;
+
+export type StateType = {|
+  current: ?MissionType,
+  missions: $ReadOnlyArray<MissionType>,
+  started: boolean,
+|};

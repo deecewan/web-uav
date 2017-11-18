@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  web:
+    build: .
+    environment:
+      - ROS_IP=172.16.11.214
+      - ROS_MASTER_URI=http://172.16.11.214:11311
+      - NODE_ENV
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - type: bind
+        source: ./server/images
+        target: /opt/app/server/images
+      - type: bind
+        source: ./client
+        target: /opt/app/client
+      - type: bind
+        source: ./server/dist
+        target: /opt/app/server/dist
+    tty: true
+  db:
+    image: "postgres:9"
+    ports:
+      - "5340:5432"
+    environment:
+      POSTGRES_PASSWORD: uav
+      POSTGRES_USER: uav
+      POSTGRES_DB: uav
